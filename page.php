@@ -17,14 +17,22 @@ $show_feat_banner = '';
 if ( has_post_thumbnail() ) {
     $bg_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
     $show_feat_banner = 'style="background-image: url(\'' . $bg_url[0] . '\')";';
-}
-?>
+}?>
+<!-- this is for the banner title -->
+
+
+<?php if (rwmb_meta('dwp_banner_text') != '') {
+	$banner_text = rwmb_meta('dwp_banner_text');
+}?>
+
+
+
     <div class="pagewrap" <?= $show_feat_banner; ?>>
 		<header>
   		 	<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
   		</header>	    
     </div><!-- /headerwrap -->
-
+<?php echo $banner_text; ?>
 <div class="container">
 	<div class="row">
 
