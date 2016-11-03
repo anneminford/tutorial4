@@ -16,7 +16,7 @@ $show_feat_banner = '';
 <?php 
 if ( has_post_thumbnail() ) {
     $bg_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
-    $show_feat_banner = 'style="background-image: url(\'' . $bg_url[0] . '\');';
+    $show_feat_banner = 'style="background-image: url(\'' . $bg_url[0] . '\')";';
 }
 ?>
     <div class="pagewrap" <?= $show_feat_banner; ?>>

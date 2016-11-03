@@ -13,9 +13,21 @@
 
 get_header(); ?>
 
+$show_feat_banner = '';
+<?php 
+if ( has_post_thumbnail() ) {
+    $bg_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+    $show_feat_banner = 'style="background-image: url(\'' . $bg_url[0] . '\');';
+}
+?>
+    <div class="pagewrap" <?= $show_feat_banner; ?>>
+		<header>somethign in here to see what is going on
+  		 	<?php the_title( '<h1>', '</h1>' ); ?>
+  		</header>	    
+    </div><!-- /headerwrap -->
+
 <div class="container">
 	<div class="row">
-<i class="fa fa-diamond"></i>icon in here
 	<div id="primary" class="col-md-9 col-lg-9">
 		<main id="main" class="site-main" role="main">
 
