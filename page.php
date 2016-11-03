@@ -29,7 +29,8 @@ if ( has_post_thumbnail() ) {
 
     <div class="pagewrap" <?= $show_feat_banner; ?>>
 		<header>
-  		 	<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+  		 	<!-- <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?> -->
+  		 	<h1><?php echo $banner_text; ?></h1>
   		</header>	    
     </div><!-- /headerwrap -->
 <?php echo $banner_text; ?>
