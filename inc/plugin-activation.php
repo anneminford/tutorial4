@@ -33,8 +33,16 @@ function my_theme_register_required_plugins() {
 			'name'     => 'Redux Framework', // The plugin name.
 			'slug'     => 'redux-framework', // The plugin slug (typically the folder name).
 			'required' => true, // If false, the plugin is only 'recommended' instead of required.
-			// 'force_activation' => true,
-			// 'force_deactivation' => true,
+		),
+		array(
+			'name'               => 'Portfolio post type', // The plugin name.
+			'slug'               => 'portfolio-post-gype', // The plugin slug (typically the folder name).
+			'source'             => get_stylesheet_directory() . '/plugins/portfolio-post-type.zip', // The plugin
+			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If 
+			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be 
+			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for 
+			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
 		),
 	);
 
