@@ -12,28 +12,22 @@
 
 get_header(); ?>
 
-<?php $bg_img = rwmb_meta('dwp_banner_image', 'type=image');
-
-	$bg_url ='';
-
-	if(count($bg_img) > '0'){
-
-		foreach ($bg_img as $img) {
-			$bg = "{$img['full_url']}";
-			$bg_url = "background-image: url('" . $bg . "');";
-		}
-	}
-
+<?php $bg_img = dwp_option('portfolio-banner-img', false, 'url');
+$bg_url = '';
+if ($bg_img != ''){
+    echo "I am not blank";
+    $bg_url = "background-image: url('" . $bg_img . "');";
+} else {
+    echo "I am blank";
+}
 ?>
 
 <div class="pagewrap" style="<?php echo $bg_url; ?>">
 		<header>
-		<?php if (rwmb_meta('dwp_banner_text') != '') {
+		<?php if (dwp_option('portfolio-banner-title', 'Header Text' ) != '') {
 		    echo '<h1>';
-		    echo rwmb_meta('dwp_banner_text');
+		    echo dwp_option('portfolio-banner-title');
 		    echo '</h1>';
-		} else { ?>
-		   <?php the_title( '<h1 class="entry-title">', '</h1>' );
 		}?>
 		</header>	    
 </div><!-- /pagewrap -->
@@ -41,24 +35,39 @@ get_header(); ?>
 <div class="container">
 	<div class="row">
 
-	<div id="primary" class="col-md-8 col-lg-8">
+	<div id="primary" class="col-md-12 col-lg-12">
 		<main id="main" class="site-main" role="main">
+			<?php 
+			// the query
+			$the_query = new WP_Query( array('post_type' => 'portfolio') ); ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php if ( $the_query->have_posts() ) : ?>
 
-				<?php get_template_part( 'content', 'page' ); ?>
+				<div class="row">
+					<div class="portfolio-items">
 
-				<?php
-					// If comments are open or we have at least one comment, load up the comment template
-					if ( comments_open() || '0' != get_comments_number() ) :
-						comments_template();
-					endif;
-				?>
+					<!-- the loop -->
+					<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-			<?php endwhile; // end of the loop. ?>
+					<?php get_template_part( 'content', 'portfolio' ); ?>
+					  
+
+					<?php endwhile; ?>
+					<!-- end of the loop -->
+
+				</div> <!-- #portfolio-items -->
+
+				</div> <!-- .row -->			
+
+				<?php wp_reset_postdata(); ?>
+
+			<?php else : ?>
+				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+			<?php endif; ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
+	</div> <!-- .row -->
+</div> <!-- .container -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

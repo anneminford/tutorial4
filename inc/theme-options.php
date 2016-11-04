@@ -256,6 +256,28 @@
                     ),
                 );
 
+               $this->sections[]= array(
+                    'title'            => __( 'portfolio', 'diamondwp' ),
+                    'icon'             => 'el-icon-photo',
+                    'fields'           => array(
+                        array(
+                            'title'       => __( 'Banner Title', 'diamondwp' ),
+                            'subtitle'    => __( 'Text for the banner', 'diamondwp' ),
+                            'id'          => 'portfolio-banner-title',
+                            'default'     => 'portfolio banner title',
+                            'type'        => 'text',
+                        ),
+                        array(
+                            'title'       => __( 'Banner Image', 'diamondwp' ),
+                            'subtitle'    => __( 'Image for portfolio banner', 'diamondwp' ),
+                            'id'          => 'portfolio-banner-img',
+                            'type'        => 'media',
+                            'url'         => true,           
+                        ),
+                    ),
+                );
+
+
 
 
 

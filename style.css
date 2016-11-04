@@ -832,6 +832,11 @@ a:after {
     margin-bottom: 20px;
 }
 
+.portfolio-items {
+    padding-top: 40px;
+}
+
+
 /* ==========================================================================
    Image Mask
    ========================================================================== */
@@ -849,6 +854,10 @@ a:after {
 	width: 100%;
 	display: block;
 	position: relative;
+}
+
+.grid img.wp-post-image {
+	margin-bottom: 0;
 }
 
 .grid figcaption {
