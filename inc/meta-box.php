@@ -62,12 +62,19 @@ function dwp_register_meta_boxes( $meta_boxes ) {
         'fields'     => array(
             // TEXTAREA
             array(
-                'name' => esc_html__( 'Textarea', 'your-prefix' ),
+                'name' => esc_html__( 'Banner Text', 'meta-box' ),
                 'desc' => esc_html__( 'This is for the banner title', 'meta-box' ),
                 'id'   => "{$prefix}banner_text",
                 'type' => 'textarea',
                 'cols' => 20,
                 'rows' => 3,
+            ),
+                        // IMAGE ADVANCED (WP 3.5+)
+            array(
+                'name'             => esc_html__( 'Banner Background Image', 'meta-box' ),
+                'id'               => "{$prefix}banner_image",
+                'type'             => 'image_advanced',
+                'max_file_uploads' => 1,
             ),
         ),
     );

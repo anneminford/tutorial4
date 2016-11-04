@@ -12,28 +12,32 @@
 
 get_header(); ?>
 
-$show_feat_banner = '';
-<?php 
-if ( has_post_thumbnail() ) {
-    $bg_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
-    $show_feat_banner = 'style="background-image: url(\'' . $bg_url[0] . '\')";';
-}?>
-<!-- this is for the banner title -->
+<?php $bg_img = rwmb_meta('dwp_banner_image', 'type=image');
 
+	$bg_url ='';
 
-<?php if (rwmb_meta('dwp_banner_text') != '') {
-	$banner_text = rwmb_meta('dwp_banner_text');
-}?>
+	if(count($bg_img) > '0'){
 
+		foreach ($bg_img as $img) {
+			$bg = "{$img['full_url']}";
+			$bg_url = "background-image: url('" . $bg . "');";
+		}
+	}
 
+?>
 
-    <div class="pagewrap" <?= $show_feat_banner; ?>>
-		<header>
-  		 	<!-- <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?> -->
-  		 	<h1><?php echo $banner_text; ?></h1>
+    <div class="pagewrap" style="<?php echo $bg_url; ?>">
+  		<header>
+			<?php if (rwmb_meta('dwp_banner_text') != '') {
+			    echo '<h1>';
+			    echo rwmb_meta('dwp_banner_text');
+			    echo '</h1>';
+			} else { ?>
+			   <?php the_title( '<h1 class="entry-title">', '</h1>' );
+			}?>
   		</header>	    
     </div><!-- /headerwrap -->
-<?php echo $banner_text; ?>
+
 <div class="container">
 	<div class="row">
 

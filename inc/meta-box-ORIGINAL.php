@@ -146,13 +146,13 @@ function your_prefix_register_meta_boxes( $meta_boxes ) {
         ),
     );
 
-    // EXAMPLE ONE
+    // MY META BOX
     $meta_boxes[] = array(
         // Meta box id, UNIQUE per meta box. Optional since 4.1.5
         'id'         => 'standard',
 
         // Meta box title - Will appear at the drag and drop handle bar. Required.
-        'title'      => esc_html__( 'Standard Fields FUCK OFF YOU CUNT', 'your-prefix' ),
+        'title'      => esc_html__( 'Standard Fields', 'your-prefix' ),
 
         // Post types, accept custom post types as well - DEFAULT is 'post'. Can be array (multiple post types) or string (1 post type). Optional.
         'post_types' => array( 'post', 'page' ),
