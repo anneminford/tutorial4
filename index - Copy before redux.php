@@ -13,22 +13,28 @@
 
 get_header(); ?>
 
-<?php $bg_img = dwp_option('hp-banner-img', false, 'url');
-$bg_url = '';
-if ($bg_img != ''){
-    echo "I am not blank";
-    $bg_url = "background-image: url('" . $bg_img . "');";
-} else {
-    echo "I am blank";
-}
+<?php $bg_img = rwmb_meta('dwp_banner_image', 'type=image');
+
+	$bg_url ='';
+
+	if(count($bg_img) > '0'){
+
+		foreach ($bg_img as $img) {
+			$bg = "{$img['full_url']}";
+			$bg_url = "background-image: url('" . $bg . "');";
+		}
+	}
+
 ?>
 
 <div class="pagewrap" style="<?php echo $bg_url; ?>">
 		<header>
-		<?php if (dwp_option('hp-banner-title', 'Header Text' ) != '') {
+		<?php if (rwmb_meta('dwp_banner_text') != '') {
 		    echo '<h1>';
-		    echo dwp_option('hp-banner-title');
+		    echo rwmb_meta('dwp_banner_text');
 		    echo '</h1>';
+		} else { ?>
+		   <?php the_title( '<h1 class="entry-title">', '</h1>' );
 		}?>
 		</header>	    
 </div><!-- /pagewrap -->

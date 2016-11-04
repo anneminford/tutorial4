@@ -216,4 +216,11 @@ require get_template_directory() . '/inc/plugin-activation.php';
  */
 require get_template_directory() . '/inc/meta-box.php';
 
+/**
+ * Redux
+ */
+require get_template_directory() . '/inc/dwp-options.php';
+require get_template_directory() . '/inc/theme-options.php';
+
+
 

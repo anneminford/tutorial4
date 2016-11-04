@@ -20,14 +20,21 @@ function my_theme_register_required_plugins() {
 	 * If the source is NOT from the .org repo, then source is also required.
 	 */
 	$plugins = array(
-		// This is an example of how to include a plugin bundled with a theme.
+		// meta box
 		array(
 			'name'     => 'Meta Box', // The plugin name.
 			'slug'     => 'meta-box', // The plugin slug (typically the folder name).
 			
 			'required' => true, // If false, the plugin is only 'recommended' instead of required.
-			'force_activation' => true,
-			'force_deactivation' => true,
+			'force_activation' => false,
+			'force_deactivation' => false,
+		),
+		array(
+			'name'     => 'Redux Framework', // The plugin name.
+			'slug'     => 'redux-framework', // The plugin slug (typically the folder name).
+			'required' => true, // If false, the plugin is only 'recommended' instead of required.
+			// 'force_activation' => true,
+			// 'force_deactivation' => true,
 		),
 	);
 
