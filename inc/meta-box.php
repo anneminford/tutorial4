@@ -47,7 +47,7 @@ function dwp_register_meta_boxes( $meta_boxes ) {
         'title'      => esc_html__( 'Title banner', 'meta-box' ),
 
         // Post types, accept custom post types as well - DEFAULT is 'post'. Can be array (multiple post types) or string (1 post type). Optional.
-        'post_types' => array( 'post', 'page' ),
+        'post_types' => array( 'post', 'page', 'portfolio' ),
 
         // Where the meta box appear: normal (default), advanced, side. Optional.
         'context'    => 'normal',
