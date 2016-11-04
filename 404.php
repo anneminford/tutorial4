@@ -7,6 +7,12 @@
 
 get_header(); ?>
 
+<div class="pagewrap">
+		<header>
+		<h1>Page not found</h1>
+		</header>	    
+</div><!-- /pagewrap -->
+
 <div class="container">
 	<div class="row">
 

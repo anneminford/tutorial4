@@ -26,17 +26,17 @@ get_header(); ?>
 
 ?>
 
-    <div class="pagewrap" style="<?php echo $bg_url; ?>">
-  		<header>
-			<?php if (rwmb_meta('dwp_banner_text') != '') {
-			    echo '<h1>';
-			    echo rwmb_meta('dwp_banner_text');
-			    echo '</h1>';
-			} else { ?>
-			   <?php the_title( '<h1 class="entry-title">', '</h1>' );
-			}?>
-  		</header>	    
-    </div><!-- /headerwrap -->
+<div class="pagewrap" style="<?php echo $bg_url; ?>">
+		<header>
+		<?php if (rwmb_meta('dwp_banner_text') != '') {
+		    echo '<h1>';
+		    echo rwmb_meta('dwp_banner_text');
+		    echo '</h1>';
+		} else { ?>
+		   <?php the_title( '<h1 class="entry-title">', '</h1>' );
+		}?>
+		</header>	    
+</div><!-- /pagewrap -->
 
 <div class="container">
 	<div class="row">

@@ -9,10 +9,16 @@
 
 get_header(); ?>
 
+<div class="pagewrap">
+		<header>
+		<h1>Archive</h1>
+		</header>	    
+</div><!-- /pagewrap -->
+
 <div class="container">
 	<div class="row">
 
-	<section id="primary" class="col-md-9 col-lg-9">
+	<section id="primary" class="col-md-8 col-lg-8">
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
