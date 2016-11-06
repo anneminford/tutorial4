@@ -79,6 +79,48 @@ function dwp_register_meta_boxes( $meta_boxes ) {
         ),
     );
 
+    // PORTFOLIO
+
+    $meta_boxes[] = array(
+        // Meta box id, UNIQUE per meta box. Optional since 4.1.5
+        'id'         => 'details',
+
+        // Meta box title - Will appear at the drag and drop handle bar. Required.
+        'title'      => esc_html__( 'Details', 'meta-box' ),
+
+        // Post types, accept custom post types as well - DEFAULT is 'post'. Can be array (multiple post types) or string (1 post type). Optional.
+        'post_types' => array( 'portfolio' ),
+
+        // Where the meta box appear: normal (default), advanced, side. Optional.
+        'context'    => 'normal',
+
+        // Order of meta box: high (default), low. Optional.
+        'priority'   => 'high',
+
+        // Auto save: true, false (default). Optional.
+        'autosave'   => true,
+
+        // List of meta fields
+        'fields'     => array(
+            // TEXTAREA
+            array(
+                'name' => esc_html__( 'Banner Text', 'meta-box' ),
+                'desc' => esc_html__( 'This is text for next to main content', 'meta-box' ),
+                'id'   => "{$prefix}side_details",
+                'type' => 'textarea',
+                'cols' => 20,
+                'rows' => 3,
+            ),
+                        // IMAGE ADVANCED (WP 3.5+)
+            array(
+                'name'             => esc_html__( 'slider images', 'meta-box' ),
+                'id'               => "{$prefix}sliders_image",
+                'type'             => 'image_advanced',
+                'max_file_uploads' => 10,
+            ),
+        ),
+    );
+
     // 2nd meta box
     $meta_boxes[] = array(
         'title' => esc_html__( 'Advanced Fields', 'your-prefix' ),

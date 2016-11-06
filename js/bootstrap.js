@@ -6,7 +6,15 @@
 
 if (typeof jQuery === 'undefined') {
   throw new Error('Bootstrap\'s JavaScript requires jQuery')
+  // console.log('error');
 }
+
+// jquery(function(){
+//   // carousel
+//   jquery('.carousel').carousel({interval: 3500});
+//   jquery('.carousel-indicators li:first').addClass('active');
+//   jquery('.carousel-inner .item:first').addClass('active');
+// });
 
 +function ($) {
   'use strict';
@@ -2290,6 +2298,7 @@ if (typeof jQuery === 'undefined') {
   // ==============
 
   $(window).on('load', function () {
+
     $('[data-spy="affix"]').each(function () {
       var $spy = $(this)
       var data = $spy.data()
